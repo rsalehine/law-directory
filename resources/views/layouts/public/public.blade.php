@@ -23,9 +23,10 @@
         <!-- Include the navigation layout -->
         @include('layouts.public.navigation')
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
+        @include('layouts.public.footer')
     </div>
 </body>
 
