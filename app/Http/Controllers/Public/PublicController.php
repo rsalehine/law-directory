@@ -65,5 +65,10 @@ class PublicController extends Controller
         // Logic to get law firms
         return view('public.law-firms');
     }
+    public function searchResult()
+    {
+        // Logic to get search results
+        return view('public.search-results');
+    }
 }
 

@@ -3,8 +3,9 @@
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Public\PublicController;
+use App\Http\Controllers\Public\ContactController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 //public routes start
 
@@ -22,8 +23,13 @@ Route::get('/lawyers', [PublicController::class, 'lawyers'])->name('public.lawye
 Route::get('/law-firms', [PublicController::class, 'lawfirms'])->name('public.law-firms');
 Route::get('/lawyer-profile/{id}', [PublicController::class, 'lawyerProfile'])->name('public.lawyer-profile');
 Route::get('/law-firm-profile/{id}', [PublicController::class, 'lawFirmProfile'])->name('public.law-firm-profile');
+Route::get('/search-results', [PublicController::class, 'searchResult'])->name('public.search-results');
 
 //public routes end
+
+//public pages post method routes starts
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+//public pages post method routes ends
 
 Auth::routes();
 

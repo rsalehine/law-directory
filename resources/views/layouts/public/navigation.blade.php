@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -12,42 +12,48 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'active text-primary' : '' }}"
+                        href="{{ url('/') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link {{ Request::is('about') ? 'active text-primary' : '' }}"
+                        href="{{ url('/about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                    <a class="nav-link {{ Request::is('contact') ? 'active text-primary' : '' }}"
+                        href="{{ url('/contact') }}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/lawyers') }}">Lawyers</a>
+                    <a class="nav-link {{ Request::is('lawyers') ? 'active text-primary' : '' }}"
+                        href="{{ url('/lawyers') }}">Lawyers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/law-firms') }}">Law Firms</a>
+                    <a class="nav-link {{ Request::is('law-firms') ? 'active text-primary' : '' }}"
+                        href="{{ url('/law-firms') }}">Law Firms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
+                    <a class="nav-link {{ Request::is('blog') ? 'active text-primary' : '' }}"
+                        href="{{ url('/blog') }}">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/privacy') }}">Privacy Policy</a>
+                    <a class="nav-link {{ Request::is('privacy') ? 'active text-primary' : '' }}"
+                        href="{{ url('/privacy') }}">Privacy Policy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/terms') }}">Terms & Conditions</a>
+                    <a class="nav-link {{ Request::is('terms') ? 'active text-primary' : '' }}"
+                        href="{{ url('/terms') }}">Terms & Conditions</a>
                 </li>
                 <!-- Add more links as needed -->
             </ul>
 
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Public Links can go here if needed -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/login') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                </li>
-            </ul>
+            <div class="d-flex align-items-center ms-auto">
+                <form class="d-flex" action="/search-results">
+                    <input class="form-control me-2" name="s" type="text" placeholder="Search">
+                </form>
+                <a class="btn btn-primary ms-2" href="{{ url('/login') }}">Login</a>
+                <a class="btn btn-warning ms-2" href="{{ url('/register') }}">Register</a>
+            </div>
+
         </div>
     </div>
 </nav>
