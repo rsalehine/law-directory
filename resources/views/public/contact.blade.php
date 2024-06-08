@@ -41,7 +41,11 @@
                                 style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Write your message here</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
